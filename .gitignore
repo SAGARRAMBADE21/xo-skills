@@ -1,0 +1,16 @@
+# Secrets — never commit
+rclone.conf
+*.env
+.env*
+secrets/
+
+# Local test artifacts
+*.log
+*.tmp
+/tmp/
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
