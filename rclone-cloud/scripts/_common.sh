@@ -28,7 +28,7 @@ fi
 # ---------------------------------------------------------------------------
 
 rclone_config_path() {
-  echo "${RCLONE_CONFIG:-/home/coder/xo-cowork-api/rclone.conf}"
+  echo "${RCLONE_CONFIG:-/opt/xo-cowork-api/services/rclone.conf}"
 }
 
 rclone_timeout() { echo "${RCLONE_TIMEOUT:-60s}"; }

@@ -32,7 +32,7 @@ The skill enforces this restriction at the `_common.sh:require_supported_remote`
 
 - `rclone` ≥ 1.65 on `$PATH`
 - `jq` and `bash` ≥ 4.0
-- `RCLONE_CONFIG` resolves to a readable file containing at least one `[name]` section with `type = drive` or `type = onedrive`. Default: `/home/coder/xo-cowork-api/rclone.conf`.
+- `RCLONE_CONFIG` resolves to a readable file containing at least one `[name]` section with `type = drive` or `type = onedrive`. Default: `/opt/xo-cowork-api/services/rclone.conf`.
 
 If no supported remote is configured, the user must authenticate elsewhere before this skill is useful.
 
@@ -44,7 +44,7 @@ If no supported remote is configured, the user must authenticate elsewhere befor
 
 ```bash
 $ ./scripts/status.sh
-{"ok":true,"rclone_version":"rclone v1.74.1","config":"/home/coder/xo-cowork-api/rclone.conf","remotes":{"gdrive":[{"name":"my-gdrive","type":"drive"}],"onedrive":[{"name":"my-onedrive","type":"onedrive"}]}}
+{"ok":true,"rclone_version":"rclone v1.74.1","config":"/opt/xo-cowork-api/services/rclone.conf","remotes":{"gdrive":[{"name":"my-gdrive","type":"drive"}],"onedrive":[{"name":"my-onedrive","type":"onedrive"}]}}
 ```
 
 Three outcomes to handle:
@@ -351,13 +351,13 @@ Failures from `rclone` include a `kind` field classifying the cause:
 
 | Variable | Default | Purpose |
 |---|---|---|
-| `RCLONE_CONFIG` | `/home/coder/xo-cowork-api/rclone.conf` | Path to rclone config. Shared with `xo-cowork-api`. |
+| `RCLONE_CONFIG` | `/opt/xo-cowork-api/services/rclone.conf` | Path to rclone config. Shared with `xo-cowork-api`. |
 | `RCLONE_TIMEOUT` | `60s` | Per-operation rclone timeout. |
 | `RCLONE_TRANSFERS` | `4` | Parallel transfers for copy/sync. |
 | `RCLONE_CHECKERS` | `8` | Parallel checkers for copy/sync. |
 
 ```bash
-export RCLONE_CONFIG="/home/coder/xo-cowork-api/rclone.conf"
+export RCLONE_CONFIG="/opt/xo-cowork-api/services/rclone.conf"
 export RCLONE_TIMEOUT="60s"
 export RCLONE_TRANSFERS="4"
 export RCLONE_CHECKERS="8"
