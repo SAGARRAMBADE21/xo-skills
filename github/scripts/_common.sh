@@ -25,7 +25,7 @@ fi
 # Configuration paths and defaults
 # ---------------------------------------------------------------------------
 
-mcp_tokens_path() { echo "${MCP_TOKENS:-/opt/xo-cowork-api/services/mcp-tokens.json}"; }
+mcp_tokens_path() { echo "${MCP_TOKENS:-/home/coder/.config/xo-cowork/mcp-tokens.json}"; }
 gh_host()         { echo "${GH_HOST:-github.com}"; }
 gh_default_limit(){ echo "${GH_LIMIT:-30}"; }
 gh_timeout()      { echo "${GH_TIMEOUT:-60s}"; }

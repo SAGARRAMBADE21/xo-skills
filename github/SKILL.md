@@ -33,7 +33,7 @@ Local git operations (commit, push, branch) are **out of scope** — Claude Code
 ## Prerequisites
 
 - `gh` ≥ 2.x and `jq` on `$PATH`, plus `bash` and coreutils `timeout`.
-- `MCP_TOKENS` resolves to a readable JSON file containing `.github.access_token`. Default: `/opt/xo-cowork-api/services/mcp-tokens.json`. Shape:
+- `MCP_TOKENS` resolves to a readable JSON file containing `.github.access_token`. Default: `/home/coder/.config/xo-cowork/mcp-tokens.json`. Shape:
   ```json
   { "github": { "access_token": "…", "expires_at": <epoch>, "scope": "…", "auth_method": "…" } }
   ```
@@ -290,14 +290,14 @@ Every script writes a single JSON object to stdout:
 
 | Variable | Default | Purpose |
 |---|---|---|
-| `MCP_TOKENS` | `/opt/xo-cowork-api/services/mcp-tokens.json` | Source of the GitHub token (`.github.access_token`). The skill exports `GH_TOKEN` from it; users don't set `GH_TOKEN`. |
+| `MCP_TOKENS` | `/home/coder/.config/xo-cowork/mcp-tokens.json` | Source of the GitHub token (`.github.access_token`). The skill exports `GH_TOKEN` from it; users don't set `GH_TOKEN`. |
 | `GH_HOST` | `github.com` | Target host; passed as `--hostname`. |
 | `GH_REPO` | (cwd git remote) | Default `OWNER/NAME` when `--repo` is omitted. |
 | `GH_LIMIT` | `30` | Default list limit (`run.sh` defaults to 20). |
 | `GH_TIMEOUT` | `60s` | Per-call timeout via coreutils `timeout` → exit 5 on 124. |
 
 ```bash
-export MCP_TOKENS="/opt/xo-cowork-api/services/mcp-tokens.json"
+export MCP_TOKENS="/home/coder/.config/xo-cowork/mcp-tokens.json"
 export GH_HOST="github.com"
 export GH_TIMEOUT="60s"
 export GH_LIMIT="30"
